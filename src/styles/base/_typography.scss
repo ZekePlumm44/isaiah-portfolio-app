@@ -1,0 +1,62 @@
+@use '../base/mixins' as m;
+@use '../base/variables' as v;
+@use '../base/functions' as f;
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  line-height: 1.1;
+}
+h1 {
+  @include m.fs-fluid(f.rem(375), f.rem(1200), f.rem(36), f.rem(48));
+}
+
+h2 {
+  @include m.fs-fluid(f.rem(375), f.rem(1200), f.rem(28), f.rem(36));
+}
+
+p {
+  @include m.fs-fluid(f.rem(375), f.rem(1200), f.rem(16), f.rem(18));
+  line-height: 1.5;
+  color: v.$color-text;
+
+
+  &.small {
+    font-size: f.rem(13);
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.list-title {
+    margin-bottom: 1.5rem;
+    
+    h1 {
+      font-size: map-get(v.$header-font-sizes, h1);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    h2 {
+      font-size: map-get(v.$header-font-sizes, h2);
+      font-weight: 500;
+      color: v.$color-text;
+    }
+}
+
+.list-content {
+    p {
+      margin-bottom: 1rem;
+      font-size: v.$font-size-base;
+      line-height: 1.6;
+      color: v.$color-text;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+}

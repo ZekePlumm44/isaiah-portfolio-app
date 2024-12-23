@@ -1,0 +1,31 @@
+// Article-specific styles
+@use "../base/utilities" as *;
+
+article {
+  @extend .w-full; // Full width
+  @extend .max-w-main; // Centered and constrained max width
+  @extend .grow; // Grows in a flex container
+  @extend .padding-default; // Default padding
+  @extend .bg-default; // Default background
+  @extend .shadow-default; // Subtle shadow
+  @extend .radius-default; // Rounded corners
+  transition: all 0.3s ease-in-out; // Smooth transitions for hover effects
+  background: transparent; // Add this line
+  color: inherit; // This will inherit the text color from body
+
+  &:hover {
+    transform: translateY(-2px); // Subtle hover effect
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); // Enhanced shadow on hover
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.75rem; // Adjust padding for tablets
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.5rem; // Adjust padding for mobile
+    &:hover {
+      transform: none; // Remove hover effect on small screens
+    }
+  }
+}

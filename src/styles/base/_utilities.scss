@@ -1,0 +1,29 @@
+// Utility classes
+.w-full {
+  width: 100%;
+}
+
+.max-w-main {
+  max-width: var(--max-width-main, 1200px); // Default to 1200px
+  margin: 0 auto; // Centered horizontally
+}
+
+.grow {
+  flex-grow: 1; // Grows in a flex container
+}
+
+.padding-default {
+  padding: 1rem; // Default padding
+}
+
+.bg-default {
+  background-color: var(--background-color, #fff); // Default white background
+}
+
+.shadow-default {
+  box-shadow: var(--box-shadow, 0 4px 6px rgba(0, 0, 0, 0.1)); // Subtle shadow
+}
+
+.radius-default {
+  border-radius: var(--border-radius, 8px); // Default border radius
+}
