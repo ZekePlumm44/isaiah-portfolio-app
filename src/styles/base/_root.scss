@@ -4,8 +4,8 @@
   --max-width-main: 1200px;
   --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --border-radius: 8px;
-  --font-header: v.$font-header, serif;
-  --font-body: v.$font-body, serif;
+  --font-header: v.$font-header;
+  --font-body: v.$font-body;
 }
 
 html {
@@ -22,6 +22,6 @@ body {
   width: 100%;
   font-family: v.$font-body;
   font-size: v.$font-size-base;
-  color: v.$color-secondary;
+  color: v.$color-text;
   background-color: v.$color-background;
 }

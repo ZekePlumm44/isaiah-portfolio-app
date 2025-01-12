@@ -1,15 +1,15 @@
 // base/_variables.scss
 
-$color-primary: hsl(205.3, 65.35%, 24.9%); // #164669           
-$color-secondary: hsl(34.2, 100%, 59.41%); // #FFA630        
-$color-alternate: hsl(66.67, 3.7%, 47.65%); // #7d7e75         
-$color-background: hsl(225, 95.24%, 8.24%); //#010b29       
+//$color-primary: hsl(205.3, 65.35%, 66.9%); // #164669           
+//$color-secondary: hsl(34.2, 100%, 59.41%); // #FFA630        
+//$color-alternate: hsl(66.67, 3.7%, 47.65%); // #7d7e75         
+$color-background: hsl(225, 98%, 4.24%); //#010b29       
 $color-text: hsl(277.5, 100%, 98.43%); //#fcf7ff              
 $color-link: hsl(277.94, 100%, 60%); //#B433FF;             
 $color-link-hover: darken($color-link, 10%);       
 
-$font-header: 'Garamond', serif;
-$font-body: 'Garamond', serif;
+$font-header: 'Garamond', 'Times New Roman', serif;
+$font-body: 'Garamond', 'Times New Roman', serif;
 //font-accent:
 
 $font-size-large: 1.25rem;
@@ -17,10 +17,6 @@ $font-size-base: 16px;
 $font-size-small: 0.875rem;
 
 $header-font-sizes: ( // Map for header sizes
-  h1: 2.5rem,
-  h2: 2rem,
-  h3: 1.75rem,
-  h4: 1.5rem,
-  h5: 1.25rem,
-  h6: 1rem
+  h1: 1.5rem,
+  h2: 1rem,
 );

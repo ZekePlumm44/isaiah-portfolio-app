@@ -1,22 +1,17 @@
 // Article-specific styles
 @use "../base/utilities" as *;
+@use '../base/mixins' as m;
+@use '../base/variables' as v;
 
 article {
-  @extend .w-full; // Full width
-  @extend .max-w-main; // Centered and constrained max width
-  @extend .grow; // Grows in a flex container
-  @extend .padding-default; // Default padding
-  @extend .bg-default; // Default background
-  @extend .shadow-default; // Subtle shadow
-  @extend .radius-default; // Rounded corners
+  width: 100%;
+  max-width: var(--max-width-main, 1200px); // Default to 1200px
+  margin: 0 auto; // Centered horizontally
+  padding: 1rem; // Default padding
+  flex-grow: 1; // Grows in a flex container
   transition: all 0.3s ease-in-out; // Smooth transitions for hover effects
   background: transparent; // Add this line
   color: inherit; // This will inherit the text color from body
-
-  &:hover {
-    transform: translateY(-2px); // Subtle hover effect
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); // Enhanced shadow on hover
-  }
 
   @media (max-width: 768px) {
     padding: 0.75rem; // Adjust padding for tablets
@@ -28,4 +23,44 @@ article {
       transform: none; // Remove hover effect on small screens
     }
   }
+}
+
+.list-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1rem;
+  padding: 2rem;
+  align-items: start;
+}
+
+.list-title {
+    margin-bottom: 1.5rem;
+    
+    h1 {
+      font-size: map-get(v.$header-font-sizes, h1);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    h2 {
+      font-size: map-get(v.$header-font-sizes, h2);
+      font-weight: 500;
+      color: v.$color-text;
+    }
+
+}
+
+.list-content {
+    p {
+      margin-bottom: 1rem;
+      font-size: v.$font-size-base;
+      line-height: 1.6;
+      color: v.$color-text;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    border-bottom: 1px solid #aaa;
+
 }

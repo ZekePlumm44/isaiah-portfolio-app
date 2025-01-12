@@ -31,32 +31,3 @@ p {
 a {
   text-decoration: none;
 }
-
-.list-title {
-    margin-bottom: 1.5rem;
-    
-    h1 {
-      font-size: map-get(v.$header-font-sizes, h1);
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    
-    h2 {
-      font-size: map-get(v.$header-font-sizes, h2);
-      font-weight: 500;
-      color: v.$color-text;
-    }
-}
-
-.list-content {
-    p {
-      margin-bottom: 1rem;
-      font-size: v.$font-size-base;
-      line-height: 1.6;
-      color: v.$color-text;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-}
