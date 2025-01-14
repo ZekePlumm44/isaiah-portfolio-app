@@ -9,7 +9,7 @@ import Header from "./components/home/header";
 
 function App() {
   return (
-    <>
+    <div className="container">
       <article>
         <Header />
         <Intro />
@@ -19,7 +19,7 @@ function App() {
         <Reading />
         <Footer />
       </article>
-    </>
+    </div>
   );
 }
 export default App;
