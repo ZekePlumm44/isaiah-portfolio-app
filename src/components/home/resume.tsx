@@ -10,16 +10,16 @@ export default function Resume() {
         }
     ];
     return (
-        <dl className="">
+        <dl className="resume-container">
             {timelineData.map((item, index) => (
             <div className="list-container" key={index}>
-                <dt className="list-title">
+                <dt className="list-title" id="timeline-year">
                     <h2>{item.year}</h2>
                     {item.present && <span className="present-tag">Present</span>}
                 </dt>
-                <dd className="list-content">
-                    <h3>{item.role}</h3>
-                    <a href={item.link}>{item.company} ↗</a>
+                <dd className="list-content" id="timeline-role">
+                    <h2>{item.role}</h2>
+                    <a href={item.link} target="_blank" rel="noopener noreferrer">{item.company} ↗</a>
                     <p>{item.location}</p>
                 </dd>
             </div>
