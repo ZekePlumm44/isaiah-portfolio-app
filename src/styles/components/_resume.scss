@@ -1,75 +1,43 @@
 @use '../base/functions' as f;
+@use '../base/shared' as s;
 
 .resume-container {
-    margin-top: 3rem;
     box-sizing: border-box;
     overflow: visible;
 }
 
 #timeline-year {
     justify-content: flex-start;
-    text-align: center;
-    align-items: center;
-    padding: 1rem 0;
+    border: none;
 
     h2 {
         margin: 0;
-    }
-
-    @media (max-width: f.rem(1024)) {
-        padding: 0;
     }
 
     @media (max-width: f.rem(768)) {
         text-align: left;
         align-items: flex-start;
         justify-content: flex-start;
-        padding: .5rem 0;    
-        h2 {
-            padding: 0 .5rem; // Add padding to the h2 for mobile
-        }
     }
 }
 
 #timeline-role {
-    justify-content: center;
-
-    .list-content {
-        padding: 1rem;
-        
-        h2 {
-            margin-bottom: 0.5rem;
-        }
-        
-        a {
-            margin-bottom: 1rem;
-            display: block;
-            color: white;
-            text-decoration: none;
-            
-            &:hover {
-                color: #f0f0f0; // Slightly lighter on hover
-                text-decoration: underline;
-              }
-            
-              &:visited {
-                color: white !important; // Use !important to force the color
-              }
-            
-              &:focus,
-              &:active {
-                color: white;
-              }
-        }
+    border: none;
     
-        p {
-            padding-bottom: 0.5rem;
+    a {
+        display: block;
+        @include s.link-styles;
+    }
+
+    p {
+        margin-bottom: 0.5rem;
+        
+        &:last-child {
+            margin-bottom: 1rem !important;
             
-            &:last-child {
-                padding-bottom: 0.5rem !important;
-            }
         }
     }
+    
 }
 
 

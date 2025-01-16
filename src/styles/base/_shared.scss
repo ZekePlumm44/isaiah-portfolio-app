@@ -1,0 +1,45 @@
+// Shared mixins and styles
+@use "variables" as v;
+@use "functions" as f;
+
+// Typography mixins
+@mixin heading-styles($size, $weight: 700) {
+  font-size: map-get(v.$header-font-sizes, $size);
+  font-weight: $weight;
+}
+
+// Link styles
+@mixin link-styles($color: #aaa) {
+  color: $color;
+  text-decoration: none;
+  
+  &:hover {
+    color: $color;
+    text-decoration: underline;
+  }
+  
+  &:visited,
+  &:focus,
+  &:active {
+    color: $color !important;
+  }
+}
+
+// Container styles
+@mixin responsive-container {
+  @media (max-width: f.rem(1024)) {
+    max-width: 75%;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  @media (max-width: f.rem(768)) {
+    max-width: 90%;
+    width: calc(100% - 4rem);
+  }
+
+  @media (max-width: f.rem(480)) {
+    max-width: 100%;
+    width: calc(100% - 2rem);
+  }
+} 
