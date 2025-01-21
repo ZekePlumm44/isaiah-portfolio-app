@@ -8,15 +8,7 @@
 }
 
 #timeline-year {
-    justify-content: flex-start;
-    h2 {
-        margin: 0;
-    }
-
     @media (max-width: f.rem(768)) {
-        text-align: left;
-        align-items: flex-start;
-        justify-content: flex-start;
         border-bottom: none !important;
     }
 }
@@ -25,6 +17,7 @@
     a {
         display: block;
         @include s.link-styles;
+        text-decoration: underline;
     }
 
     p {

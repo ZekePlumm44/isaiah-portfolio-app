@@ -25,7 +25,7 @@ export default function Resume() {
                     className="list-title"
                     id="timeline-year"
                     style={{
-                        borderBottom: index === timelineData.length - 1 ? "1px solid #aaa" : "none",
+                        borderBottom: index === timelineData.length - 1 ? "0.03125rem solid rgba(170, 170, 170, 0.5)" : "none",
                     }}
                 >
                     <h3>{item.year}</h3>
@@ -35,7 +35,7 @@ export default function Resume() {
                     className="list-content"
                     id="timeline-role"
                     style={{
-                        borderBottom: index === timelineData.length - 1 ? "1px solid #aaa" : "none",
+                        borderBottom: index === timelineData.length - 1 ? "0.03125rem solid rgba(170, 170, 170, 0.5)" : "none",
                     }}
                 >
                     <h3>{item.role}</h3>

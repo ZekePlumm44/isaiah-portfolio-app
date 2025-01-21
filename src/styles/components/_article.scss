@@ -22,13 +22,10 @@ article {
   @media (max-width: f.rem(768)) {
     .list-container {
       grid-template-columns: 1fr;
-      gap: 1.5rem;
     }
     
     .list-title {
       border-bottom: none;
-      margin-left: 2.5rem;
-
       h1 {
         margin-bottom: 0.25rem;
       }
@@ -36,12 +33,15 @@ article {
     
     .list-content {
       padding-bottom: 1rem;
+      margin: 0;
+      p {
+        &:last-child {
+          margin-bottom: 2rem;
+        }
+      }
     }
   }
 
-  @media (max-width: f.rem(480)) {
-    padding: 5rem 1rem;
-  }
 }
 
 .container {
@@ -49,7 +49,6 @@ article {
   place-items: center;
   min-height: 100vh;
   padding: 0;
-  overflow: visible;
 }
 
 .list-container {
@@ -71,7 +70,7 @@ article {
   flex-direction: column;
   justify-content: flex-start;
   height: 100%;
-  border-bottom: f.rem(1) solid #aaa;
+  border-bottom: 0.03125rem solid rgba(170, 170, 170, 0.5);
   box-sizing: border-box;
   
   h1 {
@@ -95,9 +94,7 @@ article {
   display: grid;
   grid-template-columns: 1fr;
   height: 100%;
-  margin-bottom: 0;
-  border-bottom: f.rem(1) solid #aaa;
-
+  border-bottom: 0.03125rem solid rgba(170, 170, 170, 0.5);
 
   p {
     margin-top: 0;
@@ -110,9 +107,6 @@ article {
       margin-bottom: 4rem;
     }
   }
-
-  
-  
 
   h1 {
     @include s.heading-styles('h1');
