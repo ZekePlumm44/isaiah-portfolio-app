@@ -1,0 +1,124 @@
+// Article-specific styles
+@use "../base/utilities" as *;
+@use "../base/mixins" as m;
+@use "../base/variables" as v;
+@use "../base/functions" as f;
+@use "../base/shared" as s;
+
+article {
+  width: 100%;
+  max-width: var(--max-width-main, f.rem(1200));
+  padding: 5rem 0;
+  margin: 0 auto;
+  flex-grow: 1;
+  transition: all 0.3s ease-in-out;
+  background: transparent;
+  color: inherit;
+
+  .container {
+    @include s.responsive-container;
+  }
+
+  @media (max-width: f.rem(768)) {
+    .container {
+      grid-template-columns: 1fr;
+    }
+    
+    .title {
+      border-bottom: none;
+      h1 {
+        margin-bottom: 0.25rem;
+      }
+    }
+    
+    .content {
+      padding-bottom: 1rem;
+      margin: 0;
+      p {
+        &:last-child {
+          margin-bottom: 2rem;
+        }
+      }
+    }
+  }
+
+}
+
+.base-container {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 0;
+}
+
+.container {
+  display: grid;
+  align-items: end;
+  box-sizing: border-box;
+  justify-content: center;
+  grid-template-columns: 1fr 3fr;
+  width: f.rem(800);
+  gap: 1rem;
+  margin: 0 auto;
+  border: 0;
+
+}
+
+.title {
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  border-bottom: 0.03125rem solid rgba(170, 170, 170, 0.5);
+  box-sizing: border-box;
+  
+  h1 {
+    @include s.heading-styles('h1');
+    margin-bottom: 0.25rem;
+  }
+
+  h2 {
+    @include s.heading-styles('h2', 500);
+    color: #aaa;
+  }
+
+  h3 {
+    @include s.heading-styles('h3', 500);
+    color: #aaa;
+    margin-top: 0;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100%;
+  border-bottom: 0.03125rem solid rgba(170, 170, 170, 0.5);
+
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: v.$font-size-base;
+    line-height: 1.6;
+    color: v.$color-text;
+
+    &:last-child {
+      margin-bottom: 4rem;
+    }
+  }
+
+  h1 {
+    @include s.heading-styles('h1');
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    @include s.heading-styles('h2', 500);
+  }
+
+  h3 {
+    @include s.heading-styles('h3', 500);
+  }
+}
+
