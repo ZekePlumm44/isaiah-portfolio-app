@@ -1,10 +1,14 @@
 import { Request, Response } from "express";
 import axios from "axios";
-/**
- * Fetches the currently reading list from Literal.club API
- */
+
+interface Book {
+  title: string;
+  cover: string;
+  authors: string[];
+}
+
 export const getCurrentlyReading = async (req: Request, res: Response): Promise<void> => {
-  const apiUrl = "https://literal.club/api/v1/me"; // Replace with the actual Literal.club endpoint
+  const apiUrl = "https://literal.club/graphql";
   const token = process.env.LITERAL_ACCESS_TOKEN;
 
   if (!token) {
@@ -13,19 +17,49 @@ export const getCurrentlyReading = async (req: Request, res: Response): Promise<
   }
 
   try {
-    const response = await axios.get(apiUrl, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const query = `
+      query {
+        booksByReadingStateAndProfile(state: CURRENTLY_READING) {
+          id
+          title
+          cover
+          authors {
+            id
+            name
+          }
+        }
+      }
+    `;
 
-    res.status(200).json(response.data); // Return the data to the frontend
+    const response = await axios.post(
+      apiUrl,
+      { query },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    const books = response.data.data.booksByReadingStateAndProfile;
+    if (!books || books.length === 0) {
+      res.status(200).json({ message: "No books currently being read." });
+      return;
+    }
+
+    const firstBook = books[0];
+    const formattedBook: Book = {
+      title: firstBook.title,
+      cover: firstBook.cover,
+      authors: firstBook.authors.map((author: { name: string }) => author.name),
+    };
+
+    res.status(200).json(formattedBook);
   } catch (error: unknown) {
-    console.error("Literal.club API error:", error);
-
     if (axios.isAxiosError(error)) {
       res.status(error.response?.status || 500).json({
-        error: error.response?.data || "Failed to fetch currently reading list",
+        error: error.response?.data || "Failed to fetch currently reading book",
       });
     } else {
       res.status(500).json({ error: "An unexpected error occurred while communicating with Literal.club API." });

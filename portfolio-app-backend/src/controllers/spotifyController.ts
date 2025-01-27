@@ -9,7 +9,7 @@ const SPOTIFY_REDIRECT_URI = process.env.SPOTIFY_REDIRECT_URI || "http://localho
 let accessToken = "";
 let refreshToken = "";
 
-interface CurrentlyPlaying {
+interface ListeningStatus {
     song: string;
     artists: string[];
     album: string;
@@ -78,14 +78,12 @@ export const getCurrentlyPlaying = async (req: Request, res: Response): Promise<
     }
   
     try {
-      // Call Spotify's API
       const response = await axios.get("https://api.spotify.com/v1/me/player/currently-playing", {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
       });
   
-      // If no content is playing
       if (response.status === 204 || !response.data) {
         res.status(200).json({
           message: "No song is currently playing.",
@@ -93,9 +91,8 @@ export const getCurrentlyPlaying = async (req: Request, res: Response): Promise<
         return;
       }
   
-      // Extract data from the response
       const data = response.data;
-      const currentlyPlaying: CurrentlyPlaying = {
+      const currentlyPlaying: ListeningStatus = {
         song: data.item.name,
         artists: data.item.artists.map((artist: any) => artist.name),
         album: data.item.album.name,
@@ -104,7 +101,6 @@ export const getCurrentlyPlaying = async (req: Request, res: Response): Promise<
         spotifyUrl: data.item.external_urls.spotify,
       };
   
-      // Send the standardized object as the response
       res.status(200).json(currentlyPlaying);
       return;
     } catch (error) {
