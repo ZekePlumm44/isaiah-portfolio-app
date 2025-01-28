@@ -3,16 +3,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const mongoose_1 = __importDefault(require("mongoose"));
+const app_1 = __importDefault(require("./app"));
 dotenv_1.default.config();
-const app = (0, express_1.default)();
+// Connect to MongoDB
+const MONGO_URI = process.env.MONGO_URI || "";
+mongoose_1.default
+    .connect(MONGO_URI)
+    .then(() => console.log("Connected to MongoDB"))
+    .catch((err) => console.error("MongoDB connection error:", err));
+// Start the Server
 const PORT = process.env.PORT || 5000;
-app.use(express_1.default.json());
-app.get("/", (req, res) => {
-    res.send("Welcome to the TypeScript-powered Node.js backend!");
-});
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
-//# sourceMappingURL=server.js.map
+app_1.default.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

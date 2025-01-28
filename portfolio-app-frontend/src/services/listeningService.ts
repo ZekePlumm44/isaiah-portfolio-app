@@ -7,6 +7,7 @@ const apiUrl = import.meta.env.API_BASE_URL;
 export const fetchCurrentlyPlaying = async (): Promise<ListeningStatus | null> => {
   try {
     const response = await axios.get(`${apiUrl}/api/spotify/currently-playing`);
+    console.log(response.data);
     if (response.data.message) {
       return null;
     }

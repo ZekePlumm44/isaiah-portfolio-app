@@ -28,11 +28,11 @@ const SpotifyNowPlaying: React.FC = () => {
         {error && <p className="error">{error}</p>}
         {listeningStatus ? (
           <>
-          {listeningStatus.albumCover && (
-              <img src={listeningStatus.albumCover} alt={`${listeningStatus.songTitle} album cover`} />
+          {listeningStatus.albumArt && (
+              <img src={listeningStatus.albumArt} alt={`${listeningStatus.song} album cover`} />
             )}
-            <h4>{listeningStatus.songTitle}</h4>
-            <p>{listeningStatus.artist}</p>
+            <h4>{listeningStatus.song}</h4>
+            <p>{listeningStatus.artists[0]}</p>
             <p>{listeningStatus.album}</p>
           </>
         ) : (
