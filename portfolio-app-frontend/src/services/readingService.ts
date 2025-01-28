@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ReadingStatus } from "../types/ReadingStatus";
+import { ReadingStatus } from "../types/readingStatus";
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
 

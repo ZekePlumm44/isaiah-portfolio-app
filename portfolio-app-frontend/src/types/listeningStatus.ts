@@ -5,4 +5,7 @@ export interface ListeningStatus {
     albumArt: string;
     isPlaying: boolean;
     spotifyUrl: string;
+    songTitle: string;
+    artist: string;
+    albumCover?: string;
 }

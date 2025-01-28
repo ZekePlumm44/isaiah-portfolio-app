@@ -1,11 +1,12 @@
 import axios from "axios";
-import { ListeningStatus } from "../types/ListeningStatus";
+import { ListeningStatus } from "../types/listeningStatus";
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
-  
+// Use Vite's way to access environment variables
+const apiUrl = import.meta.env.API_BASE_URL;
+
 export const fetchCurrentlyPlaying = async (): Promise<ListeningStatus | null> => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/spotify/currently-playing`);
+    const response = await axios.get(`${apiUrl}/api/spotify/currently-playing`);
     if (response.data.message) {
       return null;
     }

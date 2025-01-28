@@ -12,6 +12,6 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src", "dist/server.ts"],
+  "include": ["src", "dist/server.ts", "../portfolio-app-frontend/src/types"],
   "exclude": ["node_modules", "dist"]
 }

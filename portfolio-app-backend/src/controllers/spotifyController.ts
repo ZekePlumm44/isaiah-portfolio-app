@@ -96,7 +96,7 @@ export const getCurrentlyPlaying = async (req: Request, res: Response): Promise<
         song: data.item.name,
         artists: data.item.artists.map((artist: any) => artist.name),
         album: data.item.album.name,
-        albumArt: data.item.album.images[0].url,
+        albumArt: data.item.album.images[2].url,
         isPlaying: data.is_playing,
         spotifyUrl: data.item.external_urls.spotify,
       };

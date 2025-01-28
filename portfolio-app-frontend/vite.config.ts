@@ -1,12 +1,12 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vite.dev/config/
 export default defineConfig({
-  server: {
-    proxy: {
-      '/api': 'http://localhost:5000',
+  root: '/home/zeke/Documents/ProjectsHome/Web_Apps/Portfolio-Web-App/isaiah-portfolio-app/portfolio-app-frontend',
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@': '/src',
     },
   },
-  plugins: [react()],
 });

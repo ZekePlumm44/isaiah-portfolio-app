@@ -10,10 +10,10 @@ export const submitContactForm = async (req: Request, res: Response): Promise<vo
   }
 
   try {
-    await sendEmail(email, process.env.EMAIL_TO || "", `Message from ${name}`, message);
-    res.status(200).json({ message: "Message sent successfully!" });
+      await sendEmail(email, process.env.EMAIL_TO || "", `Message from ${name}`, message);
+      res.status(200).json({ message: "Message sent successfully!" });
   } catch (error) {
-    console.error("Error sending email:", error);
-    res.status(500).json({ error: "Failed to send message" });
+      console.error("Error sending email:", error);
+      res.status(500).json({ error: "Failed to send message" });
   }
 };
