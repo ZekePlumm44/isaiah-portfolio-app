@@ -2,6 +2,9 @@ import axios from "axios";
 import querystring from "querystring";
 import { Request, Response } from "express";
 import { ListeningStatus } from "../types/listeningStatus";
+import dotenv from "dotenv";
+
+const envResult = dotenv.config();
 
 let accessToken = process.env.SPOTIFY_ACCESS_TOKEN || "";
 let refreshToken = process.env.SPOTIFY_REFRESH_TOKEN || "";
@@ -26,7 +29,7 @@ const refreshAccessToken = async () => {
                 }
             }
         );
-
+        console.log(response.data);
         accessToken = response.data.access_token;
         if (response.data.refresh_token) {
             refreshToken = response.data.refresh_token;
@@ -38,13 +41,17 @@ const refreshAccessToken = async () => {
 };
 
 export const getCurrentlyPlaying = async (req: Request, res: Response): Promise<void> => {
-  try {
+    console.log(accessToken);
+    console.log(refreshToken);
+    try {
       // Attempt to fetch currently playing track
       const response = await axios.get("https://api.spotify.com/v1/me/player/currently-playing", {
           headers: {
               Authorization: `Bearer ${accessToken}`,
           },
       });
+
+      console.log(response.data);
 
       if (response.status === 204 || !response.data) {
           res.status(200).json({ message: "No song currently playing" });
@@ -60,7 +67,7 @@ export const getCurrentlyPlaying = async (req: Request, res: Response): Promise<
           isPlaying: data.is_playing,
           spotifyUrl: data.item.external_urls.spotify,
       };
-
+      console.log(currentlyPlaying);
       res.status(200).json(currentlyPlaying);
   } catch (error: any) {
       if (error.response?.status === 401) {
