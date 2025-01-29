@@ -13,10 +13,6 @@ if (envResult.error) {
     console.error("Error loading .env file:", envResult.error);
     process.exit(1);
 }
-
-// Verify Spotify credentials
-console.log("Spotify Client ID:", process.env.SPOTIFY_CLIENT_ID?.slice(0, 5) + "...");
-
 // Add this immediately after dotenv.config()
 if (!process.env.SPOTIFY_CLIENT_ID || !process.env.SPOTIFY_CLIENT_SECRET) {
     throw new Error("Missing Spotify credentials in environment variables");

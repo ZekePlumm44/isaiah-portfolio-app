@@ -15,7 +15,7 @@ const SpotifyNowPlaying: React.FC = () => {
         setError("Failed to fetch currently playing song.");
       }
     };
-
+    console.log(listeningStatus);
     loadCurrentlyPlaying();
   }, []);
 
@@ -32,7 +32,7 @@ const SpotifyNowPlaying: React.FC = () => {
               <img src={listeningStatus.albumArt} alt={`${listeningStatus.song} album cover`} />
             )}
             <h4>{listeningStatus.song}</h4>
-            <p>{listeningStatus.artists[0]}</p>
+            <p>{listeningStatus.artists.join(", ")}</p>
             <p>{listeningStatus.album}</p>
           </>
         ) : (
