@@ -1,18 +1,23 @@
-import axios from "axios";
-import { ReadingStatus } from "../types/readingStatus";
+import axios from 'axios';
+import { ReadingStatus } from '../types/readingStatus';
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
+const API_BASE_URL =
+  import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5001';
 
-export const fetchCurrentlyReading = async (): Promise<ReadingStatus | null> => {
-  try {
-    const response = await axios.get(`${API_BASE_URL}/api/reading/currently-reading`);
-    
-    if (response.data.message) {
-      return null;
+export const fetchCurrentlyReading =
+  async (): Promise<ReadingStatus | null> => {
+    try {
+      const response = await axios.get(
+        `${API_BASE_URL}/api/literal/currently-reading`
+      );
+
+      if (response.data.message) {
+        return null;
+      }
+      const reading = response.data;
+      return reading;
+    } catch (error) {
+      console.error('Error fetching currently reading book:', error);
+      throw new Error('Failed to fetch currently reading book.');
     }
-    return response.data as ReadingStatus;
-  } catch (error) {
-    console.error("Error fetching currently reading book:", error);
-    throw new Error("Failed to fetch currently reading book.");
-  }
-};
+  };

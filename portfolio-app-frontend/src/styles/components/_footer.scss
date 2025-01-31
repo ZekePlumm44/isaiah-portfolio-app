@@ -1,0 +1,106 @@
+@use '../components/article' as article;
+@use '../base/shared' as s;
+@use '../base/functions' as f;
+
+.social-icons i {
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover i {
+  color: #0073b1; /* Example: LinkedIn Blue */
+}
+.fa-solid {
+  margin-right: 8px;
+}
+
+.footer-section {
+  max-width: 75%;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: center;
+  grid-template-columns: 1fr auto;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+  border: 0;
+
+  @media (min-width: 768px) {
+    width: f.rem(750);
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 0;
+    justify-items: center;
+  }
+}
+
+.footer-right {
+  align-items: flex-end;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    margin-top: 0;
+  }
+}
+
+.footer-right-item {
+  text-align: right;
+  width: 100%;
+  display: block;
+  margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    text-align: center;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    @include s.link-styles;
+    display: inline-block;
+    width: auto;
+  }
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  flex-direction: row;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+}
+
+.footer-left {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.footer-left-item {
+  text-align: left;
+  width: fit-content;
+  margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    text-align: center;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

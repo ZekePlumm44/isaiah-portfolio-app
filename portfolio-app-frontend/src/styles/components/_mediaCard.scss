@@ -1,0 +1,68 @@
+@use '../base/variables' as v;
+@use '../base/shared' as s;
+
+.media-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  width: 100%;
+  max-width: 800px;
+  min-width: 300px;
+
+  &-link {
+    width: 100%;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &-image-container {
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+    overflow: hidden;
+  }
+
+  &-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  &-text {
+    flex: 1;
+    padding-top: 0.5rem;
+    align-self: center;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+  }
+
+  &-title {
+    @include s.heading-styles('h3');
+    margin: 0 0 0.25rem;
+    color: v.$color-text;
+  }
+
+  &-subtitle {
+    color: v.$color-text-secondary;
+    margin: 0;
+  }
+
+  &-loading {
+    @include s.loading-overlay;
+  }
+
+  &:hover {
+    .media-card-image-container {
+      transform: scale(1.05);
+    }
+
+    .media-card-text {
+      transform: translateX(8px);
+    }
+  }
+}

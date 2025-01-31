@@ -1,6 +1,6 @@
 // Shared mixins and styles
-@use "variables" as v;
-@use "functions" as f;
+@use 'variables' as v;
+@use 'functions' as f;
 
 // Typography mixins
 @mixin heading-styles($size, $weight: 700) {
@@ -12,12 +12,12 @@
 @mixin link-styles($color: #aaa) {
   color: $color;
   text-decoration: none;
-  
+
   &:hover {
     color: $color;
     text-decoration: underline;
   }
-  
+
   &:visited,
   &:focus,
   &:active {
@@ -27,19 +27,37 @@
 
 // Container styles
 @mixin responsive-container {
-  @media (max-width: f.rem(1024)) {
+  @media (max-width: v.$breakpoint-desktop) {
     max-width: 75%;
     width: 100%;
-    margin: 0 auto;
+    margin: 1rem auto;
   }
 
-  @media (max-width: f.rem(768)) {
-    max-width: 90%;
-    width: calc(100% - 4rem);
-  }
-
-  @media (max-width: f.rem(480)) {
+  @media (max-width: v.$breakpoint-tablet) {
     max-width: 100%;
-    width: calc(100% - 2rem);
+    width: 100%;
+    padding: 0 2rem;
+    margin: 0.5rem auto;
   }
-} 
+
+  @media (max-width: v.$breakpoint-mobile) {
+    max-width: 100%;
+    width: 100%;
+    padding: 0 1rem;
+  }
+}
+
+@mixin loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  color: v.$color-text-secondary;
+  backdrop-filter: blur(2px);
+  border-radius: 4px;
+}

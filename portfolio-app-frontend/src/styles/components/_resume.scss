@@ -1,31 +1,19 @@
 @use '../base/functions' as f;
 @use '../base/shared' as s;
 
-.resume-container {
-    box-sizing: border-box;
-    overflow: visible;
-    
-}
-
 #timeline-year {
-    @media (max-width: f.rem(768)) {
-        border-bottom: none !important;
-    }
+  @media (max-width: f.rem(768)) {
+    border-bottom: none !important;
+  }
 }
 
 #timeline-role {
-    a {
-        display: block;
-        @include s.link-styles;
-        text-decoration: underline;
-    }
+  a {
+    display: block;
+    @include s.link-styles;
+  }
 
-    p {
-        margin-bottom: 2rem;
-        
-    }
-    
+  p {
+    margin-bottom: 1rem;
+  }
 }
-
-
-

@@ -1,10 +1,9 @@
-import Intro from "./components/home/intro";
-import Resume from "./components/home/resume";
-import Writing from "./components/home/writing";
-import Listening from "./components/home/listening";
-import Reading from "./components/home/reading";
-import Footer from "./components/home/footer";
-
+import Intro from './components/home/intro';
+import Resume from './components/home/resume';
+import Writing from './components/home/writing';
+import Listening from './components/home/listening';
+import Reading from './components/home/reading';
+import Footer from './components/home/footer';
 
 function App() {
   return (
@@ -13,7 +12,7 @@ function App() {
         <Intro />
         <Resume />
         <Writing />
-        <Listening/>
+        <Listening />
         <Reading />
         <Footer />
       </article>
