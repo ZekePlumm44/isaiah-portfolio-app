@@ -14,10 +14,10 @@ export default function Intro() {
         <p>
           Previous Software Engineer with General Motors in Atlanta where I
           helped build web apps used by every dealership in the world. Currently
-          seeiking new employment check out my resume here or contact me here.
+          seeking new employment check out my resume here or contact me here.
         </p>
         <p>
-          My deep apprection for the arts, music and literature has given me a
+          My deep appreciation for the arts, music and literature has given me a
           unique perspective on software development.
         </p>
         <p>

@@ -10,12 +10,29 @@
 
 // Link styles
 @mixin link-styles($color: v.$color-text-secondary) {
+  position: relative;
   color: $color;
   text-decoration: none;
+  display: inline-block;
+  width: fit-content;
+
+  // Pseudo element for underlining effect
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+  }
 
   &:hover {
     color: $color;
-    text-decoration: underline;
+    &::after {
+      width: 100%;
+    }
   }
 
   &:visited,

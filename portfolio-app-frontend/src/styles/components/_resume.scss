@@ -10,6 +10,7 @@
 #timeline-role {
   a {
     display: block;
+    text-decoration: none;
     @include s.link-styles;
   }
 
@@ -17,24 +18,8 @@
     margin-bottom: 1rem;
   }
 }
+
+/* Updated company-link using the link-styles mixin */
 .company-link {
-  position: relative;
-  color: inherit;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.company-link::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0;
-  height: 1px;
-  background-color: currentColor;
-  transition: width 0.3s ease;
-}
-
-.company-link:hover::after {
-  width: 100%;
+  @include s.link-styles;
 }
