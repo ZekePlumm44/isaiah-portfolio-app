@@ -40,7 +40,7 @@ export default function MediaCard({
           {loading && <div className="media-card-loading">Loading...</div>}
         </div>
         <div className="media-card-text">
-          <h3 className="media-card-title">{title}</h3>
+          <h2 className="media-card-title">{title}</h2>
           <p className="media-card-subtitle">{subtitle}</p>
         </div>
       </div>

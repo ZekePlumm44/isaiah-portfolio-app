@@ -3,7 +3,7 @@ export default function Intro() {
     <dl className="container">
       <dt className="left-item">
         <h1>Isaiah Plummer</h1>
-        <h3>Software Engineer</h3>
+        <h2>Software Engineer</h2>
       </dt>
       <dd className="right-item">
         <p>

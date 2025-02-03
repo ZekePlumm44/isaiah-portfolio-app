@@ -1,4 +1,5 @@
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import CV from '/public/assets/CV.pdf';
 
 export default function Footer() {
   return (
@@ -41,7 +42,9 @@ export default function Footer() {
       </div>
       <div className="footer-right">
         <div className="footer-right-item">
-          <a href="/resume">Resume</a>
+          <a href={CV} target="_blank" rel="noopener noreferrer">
+            Resume
+          </a>
         </div>
         <div className="footer-right-item">Beauty will save the world.</div>
       </div>

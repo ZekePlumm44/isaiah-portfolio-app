@@ -1,4 +1,3 @@
-# Logs
 logs
 *.log
 npm-debug.log*
@@ -22,3 +21,13 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.env
+.prettierrc
+.eslintignore
+.eslintrc.js
+.config.js
+.config.mjs
+.prettierignore
+.txt
+.conf
+.yml

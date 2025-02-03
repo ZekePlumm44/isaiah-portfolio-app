@@ -11,10 +11,16 @@ h4 {
 }
 h1 {
   @include m.fs-fluid(f.rem(375), f.rem(1200), f.rem(36), f.rem(48));
+  margin-bottom: 0.25rem;
 }
 
 h2 {
   @include m.fs-fluid(f.rem(375), f.rem(1200), f.rem(28), f.rem(36));
+}
+
+h3 {
+  @include m.fs-fluid(f.rem(375), f.rem(1200), f.rem(24), f.rem(32));
+  margin-top: 0;
 }
 
 p {

@@ -1,46 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { fetchCurrentlyPlaying } from '../../services/listeningService';
-import { ListeningStatus } from '../../types/listeningStatus';
+import React from 'react';
+import { useCurrentlyPlaying } from '../../hooks/useCurrentlyPlaying';
 import MediaCard from '../mediaCard';
 
 const SpotifyNowPlaying: React.FC = () => {
-  const [listeningStatus, setListeningStatus] =
-    useState<ListeningStatus | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    let intervalId: number;
-
-    const loadCurrentlyPlaying = async () => {
-      try {
-        const status = await fetchCurrentlyPlaying();
-        if (status) {
-          setListeningStatus(status);
-        } else {
-          console.error('No music currently playing');
-        }
-      } catch (err) {
-        console.error('Component fetch error:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    // Initial load
-    loadCurrentlyPlaying();
-
-    // Update every minute
-    intervalId = window.setInterval(loadCurrentlyPlaying, 60000);
-
-    return () => {
-      if (intervalId) clearInterval(intervalId);
-    };
-  }, []);
+  const { listeningStatus, loading } = useCurrentlyPlaying();
 
   return (
     <dl className="container">
       <dt className="left-item">
-        <h3>Listening</h3>
+        <h2>Listening</h2>
       </dt>
       <dd className="right-item">
         {loading && <p>Loading...</p>}

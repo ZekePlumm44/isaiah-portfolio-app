@@ -13,7 +13,6 @@ UI:
     9. Custom Greeting based on users location
     10. AMA or Guestbook
     11. Travel Map
-    12. Bucket List
     13. Recipe Page
     14. Easter Eggs
     
@@ -23,3 +22,27 @@ API:
     3. Link to command line for adding blog posts 
 
 Enhancements
+
+	Move backend calls to hooks
+	Add tests
+		Unit tests
+		Integration tests
+		End to end tests
+	Create Docker file
+	Deploy
+	Configure CI/CD
+	Write documentation
+	
+	Add on hover for reading and listening
+	Add contact functionality
+		Make UI for contacting
+		Intergrate Backend Email
+	Add Nav Icon
+	Add headshot
+	Add currently listening blurb
+	Add current company blurb
+	Add Playlist Page
+	Add Blog Page
+	Integrate CMS
+	Add Project Page
+	Add Pixelfed Pag

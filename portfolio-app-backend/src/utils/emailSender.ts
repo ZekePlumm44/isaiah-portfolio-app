@@ -1,8 +1,13 @@
-import nodemailer from "nodemailer";
+import nodemailer from 'nodemailer';
 
-const sendEmail = async (from: string, to: string, subject: string, text: string): Promise<void> => {
+const sendEmail = async (
+  from: string,
+  to: string,
+  subject: string,
+  text: string,
+): Promise<void> => {
   const transporter = nodemailer.createTransport({
-    service: "Gmail",
+    service: 'Gmail',
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,

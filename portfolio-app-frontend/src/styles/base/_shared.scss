@@ -9,7 +9,7 @@
 }
 
 // Link styles
-@mixin link-styles($color: #aaa) {
+@mixin link-styles($color: v.$color-text-secondary) {
   color: $color;
   text-decoration: none;
 

@@ -1,8 +1,8 @@
 @use '../base/functions' as f;
 @use '../base/shared' as s;
-
+@use '../base/variables' as v;
 #timeline-year {
-  @media (max-width: f.rem(768)) {
+  @media (max-width: v.$breakpoint-mobile) {
     border-bottom: none !important;
   }
 }
@@ -16,4 +16,25 @@
   p {
     margin-bottom: 1rem;
   }
+}
+.company-link {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.company-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.company-link:hover::after {
+  width: 100%;
 }

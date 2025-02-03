@@ -1,68 +1,76 @@
-import { Request, Response } from "express";
-import axios from "axios";
+import { Request, Response } from 'express';
+import axios from 'axios';
+import { ReadingStatus } from '../types/readingStatus';
 
-interface Book {
-  title: string;
-  cover: string;
-  authors: string[];
-}
+const LITERAL_USER_ID = process.env.LITERAL_USER_ID || '';
+const LITERAL_ACCESS_TOKEN = process.env.LITERAL_ACCESS_TOKEN || '';
+const LITERAL_API_URL = process.env.LITERAL_API_URL || '';
 
-export const getCurrentlyReading = async (req: Request, res: Response): Promise<void> => {
-  const apiUrl = "https://literal.club/graphql";
-  const token = process.env.LITERAL_ACCESS_TOKEN;
+let cachedReadingStatus: ReadingStatus | null = null;
+
+export async function fetchCurrentlyReading() {
+  const apiUrl = LITERAL_API_URL;
+  const token = LITERAL_ACCESS_TOKEN;
 
   if (!token) {
-    res.status(500).json({ error: "LITERAL_ACCESS_TOKEN is not configured in the environment variables." });
+    console.error('LITERAL_ACCESS_TOKEN is not configured in the environment variables.');
     return;
   }
 
   try {
-    const query = `
-      query {
-        booksByReadingStateAndProfile(state: CURRENTLY_READING) {
-          id
-          title
-          cover
-          authors {
-            id
-            name
+    const response = await axios.post(apiUrl, {
+      query: `
+        query booksByReadingStateAndProfile($profileId: String!) {
+          booksByReadingStateAndProfile(
+            limit: 1
+            offset: 0
+            readingStatus: IS_READING
+            profileId: $profileId
+          ) {
+            slug
+            title
+            cover
+            authors {
+              name
+            }
+            gradientColors
           }
         }
-      }
-    `;
+      `,
+      variables: {
+        profileId: LITERAL_USER_ID,
+      },
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    });
 
-    const response = await axios.post(
-      apiUrl,
-      { query },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      }
-    );
-
-    const books = response.data.data.booksByReadingStateAndProfile;
-    if (!books || books.length === 0) {
-      res.status(200).json({ message: "No books currently being read." });
-      return;
-    }
-
-    const firstBook = books[0];
-    const formattedBook: Book = {
-      title: firstBook.title,
-      cover: firstBook.cover,
-      authors: firstBook.authors.map((author: { name: string }) => author.name),
+    const book = response.data.data.booksByReadingStateAndProfile[0];
+    cachedReadingStatus = {
+      title: book.title,
+      cover: book.cover,
+      authors: book.authors.map((author: { name: string }) => author.name),
+      url: `https://literal.club/book/${book.slug}`,
+      gradientColors: book.gradientColors,
     };
-
-    res.status(200).json(formattedBook);
   } catch (error: unknown) {
+    console.error(error);
     if (axios.isAxiosError(error)) {
-      res.status(error.response?.status || 500).json({
-        error: error.response?.data || "Failed to fetch currently reading book",
-      });
+      console.error(
+        'An unexpected error occurred while communicating with Literal.club API.',
+        error,
+      );
     } else {
-      res.status(500).json({ error: "An unexpected error occurred while communicating with Literal.club API." });
+      console.error('Failed to fetch currently reading book', error);
     }
+  }
+}
+
+export const getCurrentlyReading = async (req: Request, res: Response): Promise<void> => {
+  if (cachedReadingStatus) {
+    res.status(200).json(cachedReadingStatus);
+  } else {
+    res.status(200).json({ message: 'Nothing currently reading' });
   }
 };

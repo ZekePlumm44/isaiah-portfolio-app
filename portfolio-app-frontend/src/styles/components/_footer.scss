@@ -1,6 +1,7 @@
-@use '../components/article' as article;
+@use '../pages/home' as home;
 @use '../base/shared' as s;
 @use '../base/functions' as f;
+@use '../base/variables' as v;
 
 .social-icons i {
   color: #333;
@@ -8,7 +9,7 @@
 }
 
 .social-icons a:hover i {
-  color: #0073b1; /* Example: LinkedIn Blue */
+  color: v.$color-link;
 }
 .fa-solid {
   margin-right: 8px;
@@ -63,20 +64,6 @@
 
   a {
     @include s.link-styles;
-    display: inline-block;
-    width: auto;
-  }
-}
-
-.social-icons {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  flex-direction: row;
-  gap: 2rem;
-
-  @media (max-width: 768px) {
-    justify-content: center;
   }
 }
 
@@ -87,7 +74,7 @@
 
   @media (max-width: 768px) {
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -102,5 +89,17 @@
     &:last-child {
       margin-bottom: 0;
     }
+  }
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  flex-direction: row;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    justify-content: center;
   }
 }

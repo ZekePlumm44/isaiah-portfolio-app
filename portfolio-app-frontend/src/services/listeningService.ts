@@ -17,6 +17,12 @@ export const fetchCurrentlyPlaying =
           },
         }
       );
+
+      // If the response has a message instead of valid data, return null.
+      if (response.data?.message) {
+        return null;
+      }
+
       return response.data;
     } catch (error) {
       if (axios.isAxiosError(error)) {

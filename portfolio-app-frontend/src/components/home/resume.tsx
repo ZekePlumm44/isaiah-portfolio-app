@@ -32,7 +32,7 @@ export default function Resume() {
                   : 'none',
             }}
           >
-            <h3>{item.year}</h3>
+            <h2>{item.year}</h2>
             {item.present && <span className="present-tag">Present</span>}
           </dt>
           <dd
@@ -45,8 +45,13 @@ export default function Resume() {
                   : 'none',
             }}
           >
-            <h3>{item.role}</h3>
-            <a href={item.link} target="_blank" rel="noopener noreferrer">
+            <h2>{item.role}</h2>
+            <a
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="company-link"
+            >
               {item.company} ↗
             </a>
             <p

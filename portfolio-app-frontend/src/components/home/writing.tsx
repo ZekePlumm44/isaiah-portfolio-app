@@ -1,3 +1,3 @@
 export default function Writing() {
-  return;
+  return <div>{/* Add writing content here */}</div>;
 }
