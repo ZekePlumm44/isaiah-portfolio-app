@@ -1,10 +1,10 @@
 // Shared mixins and styles
 @use 'variables' as v;
 @use 'functions' as f;
-
+@use 'sass:map';
 // Typography mixins
 @mixin heading-styles($size, $weight: 700) {
-  font-size: map-get(v.$header-font-sizes, $size);
+  font-size: map.get(v.$header-font-sizes, $size);
   font-weight: $weight;
 }
 
@@ -16,7 +16,6 @@
   display: inline-block;
   width: fit-content;
 
-  // Pseudo element for underlining effect
   &::after {
     content: '';
     position: absolute;
@@ -33,12 +32,6 @@
     &::after {
       width: 100%;
     }
-  }
-
-  &:visited,
-  &:focus,
-  &:active {
-    color: $color !important;
   }
 }
 

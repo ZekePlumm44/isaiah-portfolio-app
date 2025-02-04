@@ -1,5 +1,5 @@
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import CV from '/public/assets/CV.pdf';
+import CV from '/src/assets/CV.pdf';
 
 export default function Footer() {
   return (

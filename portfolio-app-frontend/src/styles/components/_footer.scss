@@ -28,10 +28,10 @@
   margin-top: 1.5rem;
   border: 0;
 
-  @media (min-width: 768px) {
-    width: f.rem(750);
+  @media (min-width: v.$breakpoint-tablet) {
+    width: f.rem(800);
   }
-  @media (max-width: 768px) {
+  @media (max-width: v.$breakpoint-tablet) {
     grid-template-columns: 1fr;
     gap: 0;
     justify-items: center;
@@ -42,7 +42,7 @@
   align-items: flex-end;
   width: 100%;
 
-  @media (max-width: 768px) {
+  @media (max-width: v.$breakpoint-tablet) {
     align-items: center;
     margin-top: 0;
   }
@@ -54,7 +54,7 @@
   display: block;
   margin-bottom: 1rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: v.$breakpoint-tablet) {
     text-align: center;
 
     &:last-child {
@@ -72,7 +72,7 @@
   align-items: flex-start;
   gap: 1rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: v.$breakpoint-tablet) {
     align-items: center;
     margin-bottom: 1rem;
   }
@@ -83,7 +83,7 @@
   width: fit-content;
   margin-bottom: 1rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: v.$breakpoint-tablet) {
     text-align: center;
 
     &:last-child {
@@ -99,7 +99,7 @@
   flex-direction: row;
   gap: 2rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: v.$breakpoint-tablet) {
     justify-content: center;
   }
 }

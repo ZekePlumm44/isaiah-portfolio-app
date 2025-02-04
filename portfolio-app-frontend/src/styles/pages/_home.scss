@@ -8,7 +8,7 @@ article {
   width: 100%;
   max-width: var(--max-width-main, f.rem(1200));
   padding: 4rem 0;
-  margin: 2rem auto;
+  margin: 1rem auto;
   flex-grow: 1;
   transition: all 0.3s ease-in-out;
   background: transparent;
@@ -22,10 +22,12 @@ article {
   @media (max-width: v.$breakpoint-mobile) {
     .container {
       grid-template-columns: 1fr;
+      margin: 1rem auto;
     }
 
     .left-item {
       border-bottom: none;
+      padding-bottom: 1.5rem;
       h1 {
         margin-bottom: 0.25rem;
       }
@@ -52,14 +54,13 @@ article {
   box-sizing: border-box;
   justify-content: center;
   grid-template-columns: 1fr 3fr;
-  max-width: f.rem(750);
+  max-width: f.rem(800);
   margin: 1rem auto;
   gap: 1rem;
   border: 0;
 }
 
 .left-item {
-  padding-bottom: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -95,6 +96,12 @@ article {
 
     &:last-child {
       margin-bottom: 4rem;
+    }
+
+    a {
+      color: v.$color-text;
+      text-decoration: underline;
+      text-decoration-color: v.$color-text-secondary;
     }
   }
 

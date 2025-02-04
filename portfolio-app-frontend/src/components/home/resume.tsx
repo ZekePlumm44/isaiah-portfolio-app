@@ -19,7 +19,7 @@ export default function Resume() {
   ];
 
   return (
-    <dl className="resume-container">
+    <dl>
       {timelineData.map((item, index) => (
         <div className="container" key={index}>
           <dt
