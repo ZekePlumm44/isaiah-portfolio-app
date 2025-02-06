@@ -12,5 +12,5 @@ RUN npm install --production
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/server.js ./
 EXPOSE 5001
-CMD ["node", "server.js"]  # Directly use the entry file
+CMD ["npm", "start"]
 
