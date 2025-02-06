@@ -1,9 +1,9 @@
 FROM node:18-alpine as builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci --include=dev  # Include dev dependencies for build
+RUN npm ci
 COPY . .
-RUN npm run build  # Generates dist/ directory
+RUN npm run build && npm exec tsc-alias
 
 FROM node:18-alpine
 WORKDIR /app
