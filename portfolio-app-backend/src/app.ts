@@ -5,17 +5,9 @@ import contactRoutes from './routes/contactRoutes';
 import photoRoutes from './routes/photoRoutes';
 import spotifyRoutes from './routes/spotifyRoutes';
 import literalRoutes from './routes/literalRoutes';
-import dotenv from 'dotenv';
 import cron from 'node-cron';
 import { fetchCurrentlyPlaying } from './controllers/spotifyController';
 import { fetchCurrentlyReading } from './controllers/literalController';
-
-const envResult = dotenv.config();
-
-if (envResult.error) {
-  console.error('Error loading .env file:', envResult.error);
-  process.exit(1);
-}
 
 if (!process.env.SPOTIFY_CLIENT_ID || !process.env.SPOTIFY_CLIENT_SECRET) {
   throw new Error('Missing Spotify credentials in environment variables');
