@@ -7,8 +7,8 @@
     "lint": "eslint \"src/**/*.ts\"",
     "lint:fix": "eslint \"src/**/*.ts\" --fix",
     "format": "prettier --write \"src/**/*.ts\"",
-    "build": "tsc --outDir dist && tsc-alias",
-    "start": "node dist/server.js",
+    "build": "tsc && tsc-alias",
+    "start": "NODE_ENV=production node dist/server.js",
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'npm run build && npm start'"
   },
   "keywords": [],
