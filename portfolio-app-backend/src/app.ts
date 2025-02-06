@@ -14,14 +14,9 @@ if (!process.env.SPOTIFY_CLIENT_ID || !process.env.SPOTIFY_CLIENT_SECRET) {
 }
 
 const app: Application = express();
-const corsOptions = {
-  origin: 'http://localhost:3000', // Your frontend origin
-  credentials: true,
-  allowedHeaders: ['Content-Type', 'Authorization'],
-};
 
 // Middleware
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 app.use(helmet());
 
