@@ -1,7 +1,7 @@
 FROM node:18-alpine as builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --include=dev  # Include dev dependencies for build
 COPY . .
 RUN npm run build  # Generates dist/ directory
 
