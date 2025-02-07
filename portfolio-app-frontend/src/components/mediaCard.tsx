@@ -20,12 +20,7 @@ export default function MediaCard({
   size = { width: 64, height: 64, textWidth: '100%' },
 }: MediaCardProps) {
   return (
-    <a
-      href={href}
-      className="media-card-link"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a href={href} className="media-card-link" target="_blank" rel="noreferrer">
       <div className="media-card" style={{ width: `${size.width}px` }}>
         <div className="media-card-image-container">
           <img

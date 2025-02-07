@@ -33,7 +33,7 @@ export default function Intro() {
           <a
             href="https://github.com/ZekePlumm44"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
           >
             Github
           </a>
@@ -43,7 +43,7 @@ export default function Intro() {
           <a
             href="https://bsky.app/profile/isaiahplumm.bsky.social"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
           >
             Bluesky
           </a>

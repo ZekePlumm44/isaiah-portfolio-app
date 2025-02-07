@@ -17,7 +17,11 @@ const app: Application = express();
 
 // Middleware
 const corsOptions = {
-  origin: ['https://isaiah-portfolio-app.onrender.com', 'https://www.isaiahplummer.com'],
+  origin: [
+    'https://isaiah-portfolio-app.onrender.com',
+    'https://www.isaiahplummer.com',
+    'https://isaiahplummer.com',
+  ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
@@ -35,7 +39,7 @@ app.use('/api/spotify', spotifyRoutes);
 app.use('/api/literal', literalRoutes);
 
 //Fetch currently playing every 15 seconds
-cron.schedule('*/15 * * * * *', () => {
+cron.schedule('*/10 * * * * *', () => {
   fetchCurrentlyPlaying();
 });
 
