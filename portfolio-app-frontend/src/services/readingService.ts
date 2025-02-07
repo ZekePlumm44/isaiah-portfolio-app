@@ -9,7 +9,10 @@ export const fetchCurrentlyReading =
   async (): Promise<ReadingStatus | null> => {
     try {
       const response = await axios.get(
-        `${API_BASE_URL}/api/literal/currently-reading`
+        `${API_BASE_URL}/api/literal/currently-reading`,
+        {
+          withCredentials: true,
+        }
       );
 
       if (response.data.message) {
