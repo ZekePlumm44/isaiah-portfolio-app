@@ -17,7 +17,7 @@ const app: Application = express();
 
 // Middleware
 const corsOptions = {
-  origin: ['https://isaiah-portfolio-app.onrender.com', 'https://isaiahplummer.com'],
+  origin: ['https://isaiah-portfolio-app.onrender.com', 'https://www.isaiahplummer.com'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
