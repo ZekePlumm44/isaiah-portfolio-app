@@ -8,7 +8,7 @@ RUN npm run build
 
 # Stage 2: Production image
 FROM node:18-alpine
-WORKDIR /app
+WORKDIR /portfolio-app-backend
 COPY --from=builder /portfolio-app-backend/dist ./dist
 COPY --from=builder /portfolio-app-backend /package*.json ./
 
