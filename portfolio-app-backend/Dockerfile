@@ -11,4 +11,4 @@ COPY package*.json ./
 RUN npm ci --only=production
 COPY --from=builder /app/dist ./dist
 EXPOSE 5001
-CMD ["node", "server.js"]
+CMD ["node", "dist/src/server.js"]
