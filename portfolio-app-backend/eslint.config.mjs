@@ -14,7 +14,6 @@ export default [
       parser: tsParser,
       parserOptions: {
         project: './tsconfig.json',
-        tsconfigRootDir: __dirname
       },
       globals: {
         ...globals.node
