@@ -33,3 +33,5 @@ dist-ssr
 *.yml
 private.key
 domain.crt
+private.key
+domain.crt
