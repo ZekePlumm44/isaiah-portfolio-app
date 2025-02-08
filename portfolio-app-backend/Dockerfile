@@ -10,7 +10,6 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install --production
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/dist/server.js ./
 EXPOSE 5001
 CMD ["npm", "start"]
 
