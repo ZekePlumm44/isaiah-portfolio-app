@@ -8,13 +8,12 @@ RUN npm install --development
 COPY . .
 RUN npm run build
 
-# ---- Production Stage ----
+# ---- Production Stage ---- 
 FROM node:18-alpine
 WORKDIR /app
 COPY package*.json ./
 RUN npm install --production
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package*.json ./
 ENV NODE_ENV=production
 
 EXPOSE 5001
