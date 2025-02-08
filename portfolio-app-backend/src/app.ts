@@ -10,13 +10,10 @@ import dotenv from 'dotenv';
 import { fetchCurrentlyPlaying } from './controllers/spotifyController';
 import { fetchCurrentlyReading } from './controllers/literalController';
 
-if (process.env.NODE_ENV !== 'production') {
-  dotenv.config();
-}
+dotenv.config();
 
 const app: Application = express();
 const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS?.split(',') || [];
-console.log(`ALLOWED_ORIGINS: ${ALLOWED_ORIGINS}`);
 // Middleware
 const corsOptions = {
   origin: ALLOWED_ORIGINS,
@@ -54,8 +51,6 @@ export const startServer = () => {
   const PORT = process.env.PORT || 5001;
   return app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
-    console.log(ALLOWED_ORIGINS);
-    console.log(`hi`);
   });
 };
 

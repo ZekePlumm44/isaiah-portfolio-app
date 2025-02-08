@@ -2,7 +2,7 @@ import axios from 'axios';
 import { ReadingStatus } from '../types/readingStatus';
 
 const API_BASE_URL =
-  import.meta.env.REACT_APP_API_BASE_URL ||
+  import.meta.env.VITE_API_BASE_URL ||
   'https://isaiah-portfolio-api.onrender.com';
 
 export const fetchCurrentlyReading =

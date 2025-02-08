@@ -2,6 +2,9 @@ import axios from 'axios';
 import querystring from 'querystring';
 import { Request, Response } from 'express';
 import { ListeningStatus } from '../types/listeningStatus';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 let accessToken = process.env.SPOTIFY_ACCESS_TOKEN || '';
 let refreshToken = process.env.SPOTIFY_REFRESH_TOKEN || '';

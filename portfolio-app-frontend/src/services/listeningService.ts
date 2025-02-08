@@ -3,7 +3,8 @@ import { ListeningStatus } from '../types/listeningStatus';
 
 // Use Vite's way to access environment variables
 const apiUrl =
-  import.meta.env.API_BASE_URL || 'https://isaiah-portfolio-api.onrender.com';
+  import.meta.env.VITE_API_BASE_URL ||
+  'https://isaiah-portfolio-api.onrender.com';
 
 export const fetchCurrentlyPlaying =
   async (): Promise<ListeningStatus | null> => {
