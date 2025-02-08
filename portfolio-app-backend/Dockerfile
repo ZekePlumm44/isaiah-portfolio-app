@@ -8,9 +8,9 @@ RUN npm run build
 
 # Stage 2: Production image
 FROM node:18-alpine
-WORKDIR /portfolio-app-backend
-COPY --from=builder /portfolio-app-backend/dist ./dist
-COPY --from=builder /portfolio-app-backend /package*.json ./
+WORKDIR /app
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/package*.json ./
 
 EXPOSE 5001
 CMD ["node", "dist/server.js"]
