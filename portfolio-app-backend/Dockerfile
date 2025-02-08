@@ -6,6 +6,8 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
+RUN ls -la dist/
+
 # Stage 2: Production image
 FROM node:18-alpine
 WORKDIR /app
