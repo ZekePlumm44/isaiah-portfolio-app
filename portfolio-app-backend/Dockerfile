@@ -13,10 +13,10 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 # Copy package files first for better caching
-COPY --from=builder /app/package*.json ./  # Added destination path (./)
+COPY --from=builder /app/package*.json ./
 
 # Copy built files
-COPY --from=builder /app/dist ./dist  # Added destination path (./dist)
+COPY --from=builder /app/dist ./dist
 
 # Install production dependencies
 RUN npm ci --only=production
