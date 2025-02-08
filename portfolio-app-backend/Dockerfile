@@ -6,7 +6,7 @@ COPY . .
 RUN npm run build && npm exec tsc-alias
 
 FROM node:18-alpine
-WORKDIR /app
+WORKDIR /app/dist
 COPY --from=builder /app/dist ./dist
 EXPOSE 5001
-CMD ["node", "./dist/server.js"]
+CMD ["node", "server.js"]
