@@ -1,3 +1,5 @@
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 export default function Resume() {
   const timelineData = [
     {
@@ -46,14 +48,17 @@ export default function Resume() {
             }}
           >
             <h2>{item.role}</h2>
-            <a
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="company-link"
-            >
-              {item.company} ↗
-            </a>
+            <div>
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="company-link"
+              >
+                {item.company}
+                <i className="fa-solid fa-link"></i>
+              </a>
+            </div>
             <p
               style={{
                 marginBottom:

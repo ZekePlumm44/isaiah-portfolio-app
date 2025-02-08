@@ -2,8 +2,7 @@ import axios from 'axios';
 import { ReadingStatus } from '../types/readingStatus';
 
 const API_BASE_URL =
-  import.meta.env.REACT_APP_API_BASE_URL ||
-  'https://isaiah-portfolio-api.onrender.com';
+  import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:5001';
 
 export const fetchCurrentlyReading =
   async (): Promise<ReadingStatus | null> => {

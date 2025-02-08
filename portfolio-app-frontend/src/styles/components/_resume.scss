@@ -8,6 +8,9 @@
 }
 
 #timeline-role {
+  h2 {
+    color: v.$color-text;
+  }
   a {
     display: block;
     text-decoration: none;
@@ -22,4 +25,10 @@
 /* Updated company-link using the link-styles mixin */
 .company-link {
   @include s.link-styles;
+}
+
+.fa-link {
+  margin-left: 4px;
+  margin-right: 0;
+  font-size: .8rem;
 }

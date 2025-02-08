@@ -1,11 +1,8 @@
 #TODO
 
 UI:
-    1. Currently Listening
-    2. Currently Reading
-    3. Footer
     4. Projects
-    4.1 Contact Me Form
+    4. Contact Me Form
     5. Blog Posts
     6. Photo Album
     7. Playlists

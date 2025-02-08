@@ -11,7 +11,8 @@ let cachedReadingStatus: ReadingStatus | null = null;
 export async function fetchCurrentlyReading() {
   const apiUrl = LITERAL_API_URL;
   const token = LITERAL_ACCESS_TOKEN;
-
+  console.log(token);
+  console.log(LITERAL_API_URL);
   if (!token) {
     console.error('LITERAL_ACCESS_TOKEN is not configured in the environment variables.');
     return;

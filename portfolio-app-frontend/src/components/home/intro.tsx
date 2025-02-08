@@ -23,12 +23,6 @@ export default function Intro() {
           self-documenting and functional software.
         </p>
         <p>
-          With the advent of AI, I&apos;ve dedicated my time to studying the
-          aspects of development that are most likely to be the future of what
-          it means to be a software engineer. This includes system design,
-          devops fundamentals and where the future of technology is headed.
-        </p>
-        <p>
           You can check out more of my work on{' '}
           <a
             href="https://github.com/ZekePlumm44"
