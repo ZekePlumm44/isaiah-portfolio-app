@@ -4,14 +4,12 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "clean": "rm -rf dist/",
     "lint": "eslint \"src/**/*.ts\"",
-    "lint:fix": "npm run lint -- --fix",
+    "lint:fix": "eslint \"src/**/*.ts\" --fix",
     "format": "prettier --write \"src/**/*.ts\"",
-    "build": "tsc && tsc-alias",
-    "start": "NODE_ENV=production node dist/server.js",
-    "dev": "NODE_ENV=development ts-node-dev --respawn --transpile-only /server.ts",
-    "prod": "npm run build && npm start"
+    "build": "tsc --outDir dist && tsc-alias",
+    "start": "node dist/server.js",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'npm run build && npm start'"
   },
   "keywords": [],
   "author": "",
