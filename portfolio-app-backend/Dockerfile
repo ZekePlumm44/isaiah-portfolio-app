@@ -1,25 +1,21 @@
-# Stage 1: Build application
-FROM node:18-alpine AS builder
+# ---- Build Stage ----
+FROM node:18-alpine as builder
+
+# Set working directory
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci
-COPY src ./src
-COPY tsconfig.json ./
+RUN npm install
+COPY . .
 RUN npm run build
 
-# Stage 2: Production image
+# ---- Production Stage ----
 FROM node:18-alpine
 WORKDIR /app
+COPY package*.json ./
+RUN npm install --production
+COPY --from=builder /app/dist ./dist
 ENV NODE_ENV=production
 
-# Copy package files first for better caching
-COPY --from=builder /app/package*.json ./
+EXPOSE 3000
 
-# Copy built files
-COPY --from=builder /app/dist ./dist
-
-# Install production dependencies
-RUN npm ci --only=production
-
-EXPOSE 5001
-CMD ["node", "dist/server.js"]
+CMD ["npm", "run", "prod"]
