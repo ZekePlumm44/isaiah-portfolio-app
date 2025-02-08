@@ -8,13 +8,13 @@
     "paths": {
       "*": ["./*"]
     },
-    "rootDir": "./src",
+    "rootDir": ".",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "noEmit": false,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src"],
+  "include": ["src/**/*", "server.js"],
   "exclude": ["node_modules", "dist"]
 }
