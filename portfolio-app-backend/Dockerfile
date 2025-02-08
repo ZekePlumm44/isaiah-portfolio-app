@@ -15,7 +15,7 @@ COPY --from=builder /app/package*.json ./
 RUN npm ci --only=production
 
 # If using Express server
-COPY --from=builder /app/server.ts ./
+COPY --from=builder /app/src/server.ts ./
 COPY --from=builder /app/tsconfig.json ./
 
 EXPOSE 5001
