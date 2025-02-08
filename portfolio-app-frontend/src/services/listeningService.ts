@@ -2,7 +2,8 @@ import axios from 'axios';
 import { ListeningStatus } from '../types/listeningStatus';
 
 // Use Vite's way to access environment variables
-const apiUrl = import.meta.env.API_BASE_URL || 'http://localhost:5001';
+const apiUrl =
+  import.meta.env.API_BASE_URL || 'https://isaiah-portfolio-api.onrender.com';
 
 export const fetchCurrentlyPlaying =
   async (): Promise<ListeningStatus | null> => {
