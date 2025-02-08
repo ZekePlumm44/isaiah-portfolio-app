@@ -4,8 +4,7 @@ FROM node:18-alpine as builder
 # Set working directory
 WORKDIR /app
 COPY package*.json ./
-ENV NODE_ENV=development
-RUN npm install
+RUN npm install --development
 COPY . .
 RUN npm run build
 
