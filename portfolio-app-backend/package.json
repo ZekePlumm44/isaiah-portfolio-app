@@ -7,9 +7,10 @@
     "lint": "eslint \"src/**/*.ts\"",
     "lint:fix": "eslint \"src/**/*.ts\" --fix",
     "format": "prettier --write \"src/**/*.ts\"",
-    "build": "tsc --outDir dist && tsc-alias",
+    "build": "npx tsc",
     "start": "node dist/server.js",
-    "dev": "nodemon --watch 'src/**/*.ts' --exec 'npm run build && npm start'"
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'npm run build && npm start'",
+    "clean": "rm -rf node_modules && rm -f package-lock.json"
   },
   "keywords": [],
   "author": "",
@@ -35,9 +36,8 @@
     "nodemon": "^3.1.9",
     "prettier": "^3.4.2",
     "ts-node": "^10.9.2",
-    "ts-node-dev": "^2.0.0",
     "tsc-alias": "^1.8.10",
-    "typescript": "^5.6.3"
+    "typescript": "^5.7.3"
   },
   "dependencies": {
     "axios": "^1.7.9",
@@ -52,6 +52,8 @@
     "node-cron": "^3.0.3",
     "nodemailer": "^6.10.0",
     "passport": "^0.7.0",
-    "passport-oauth2": "^1.8.0"
+    "passport-oauth2": "^1.8.0",
+    "tsconfig-paths": "^4.2.0",
+    "tscpaths": "^0.0.9"
   }
 }

@@ -1,17 +1,23 @@
-FROM node:18-alpine as builder
+# Use official Node image with Alpine for smaller size
+FROM node:18-alpine AS builder
+
+# Set working directory
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
-RUN npm run build && npm exec tsc-alias
-RUN find /app -name "server.js"
-RUN ls -lR /app/dist
+RUN npm run build
 
+# --- Production Stage ---
 FROM node:18-alpine
+
+ENV NODE_ENV production
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci --only=production
 COPY --from=builder /app/dist ./dist
-RUN ls -lR /app/dist
+COPY --from=builder /app/server.js ./
 EXPOSE 5001
-CMD ["node", "./dist/src/server.js"]
+
+# Start the application
+CMD ["node", "server.js"]
