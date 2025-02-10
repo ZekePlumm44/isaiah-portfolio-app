@@ -9,7 +9,7 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "build": "tsc --outDir dist --rootDir src && tsc-alias",
     "start": "node dist/server.js",
-    "dev": "nodemon --watch 'src/**/*.ts' --exec 'npm run build && npm start'"
+    "dev": "NODE_ENV=development ts-node src/server.ts"
   },
   "keywords": [],
   "author": "",

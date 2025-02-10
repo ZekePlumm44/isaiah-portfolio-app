@@ -1,3 +1,4 @@
+import './config/env'; // Must be first import
 import express, { Application } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
@@ -6,14 +7,8 @@ import photoRoutes from './routes/photoRoutes';
 import spotifyRoutes from './routes/spotifyRoutes';
 import literalRoutes from './routes/literalRoutes';
 import cron from 'node-cron';
-import dotenv from 'dotenv';
 import { fetchCurrentlyPlaying } from './controllers/spotifyController';
 import { fetchCurrentlyReading } from './controllers/literalController';
-
-// Load environment variables only in development
-if (process.env.NODE_ENV === 'development') {
-  dotenv.config();
-}
 
 const app: Application = express();
 const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS?.split(',') || [];
