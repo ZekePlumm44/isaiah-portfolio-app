@@ -12,4 +12,4 @@ RUN npm ci --only=production
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/dist/server.js ./
 EXPOSE 5001
-CMD ["node", "server.js"]
+CMD ["node", "dist/server.js"]

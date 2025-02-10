@@ -1,7 +1,7 @@
 {
   "name": "portfolio-app-backend",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "dist/server.js",
   "type": "commonjs",
   "scripts": {
     "lint": "eslint \"src/**/*.ts\"",
@@ -9,7 +9,7 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "build": "tsc --outDir dist --rootDir src && tsc-alias",
     "start": "node dist/server.js",
-    "dev": "NODE_ENV=development ts-node src/server.js"
+    "dev": "NODE_ENV=development ts-node src/server.ts"
   },
   "keywords": [],
   "author": "",
