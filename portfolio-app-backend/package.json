@@ -1,14 +1,14 @@
 {
   "name": "portfolio-app-backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "type": "commonjs",
   "scripts": {
     "lint": "eslint \"src/**/*.ts\"",
     "lint:fix": "eslint \"src/**/*.ts\" --fix",
     "format": "prettier --write \"src/**/*.ts\"",
-    "build": "tsc --outDir dist && tsc-alias",
-    "start": "node server.js",
+    "build": "tsc --outDir dist --rootDir src && tsc-alias",
+    "start": "node dist/server.js",
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'npm run build && npm start'"
   },
   "keywords": [],
