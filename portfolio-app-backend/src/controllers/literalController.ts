@@ -1,9 +1,6 @@
 import { Request, Response } from 'express';
 import axios from 'axios';
 import { ReadingStatus } from '../types/readingStatus';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 const LITERAL_USER_ID = process.env.LITERAL_USER_ID || '';
 const LITERAL_ACCESS_TOKEN = process.env.LITERAL_ACCESS_TOKEN || '';
