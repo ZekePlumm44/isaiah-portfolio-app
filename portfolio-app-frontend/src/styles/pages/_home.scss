@@ -74,6 +74,7 @@ article {
 
   h2 {
     @include s.heading-styles('h2', 500);
+    color: v.$color-text-secondary;
   }
 
   h3 {
