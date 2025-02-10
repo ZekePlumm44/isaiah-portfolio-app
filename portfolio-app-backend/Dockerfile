@@ -4,6 +4,7 @@ WORKDIR /app
 
 COPY package*.json ./
 RUN npm ci --include=dev
+ENV PATH /app/node_modules/.bin:$PATH
 RUN npm ls typescript && which tsc
 
 COPY . .
