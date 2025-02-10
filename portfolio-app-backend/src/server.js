@@ -1,3 +1,3 @@
-import { startServer } from "./dist/src/app.js";
+import { startServer } from "./dist/app.js";
 
 startServer(); 
