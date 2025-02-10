@@ -7,11 +7,18 @@ import spotifyRoutes from './routes/spotifyRoutes';
 import literalRoutes from './routes/literalRoutes';
 import cron from 'node-cron';
 import dotenv from 'dotenv';
+import path from 'path';
 import { fetchCurrentlyPlaying } from './controllers/spotifyController';
 import { fetchCurrentlyReading } from './controllers/literalController';
 
 dotenv.config();
 
+console.log('Current working directory (process.cwd()):', process.cwd());
+console.log('Directory of the current module (__dirname):', __dirname);
+if (require.main) {
+  const baseDir = path.dirname(require.main.filename);
+  console.log('Base directory (from require.main):', baseDir);
+}
 const app: Application = express();
 const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS?.split(',') || [];
 // Middleware
