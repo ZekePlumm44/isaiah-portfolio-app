@@ -1,3 +1,4 @@
+import '../config/env';
 import { Request, Response } from 'express';
 import axios from 'axios';
 import { ReadingStatus } from '../types/readingStatus';

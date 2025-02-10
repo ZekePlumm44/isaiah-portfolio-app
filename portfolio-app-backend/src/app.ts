@@ -1,4 +1,4 @@
-import './config/env'; // Must be first import
+import './config/env';
 import express, { Application } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';

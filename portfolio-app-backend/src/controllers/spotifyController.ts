@@ -1,3 +1,4 @@
+import '../config/env';
 import axios from 'axios';
 import querystring from 'querystring';
 import { Request, Response } from 'express';

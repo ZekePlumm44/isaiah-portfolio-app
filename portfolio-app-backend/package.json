@@ -9,7 +9,7 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "build": "tsc --outDir dist --rootDir src && tsc-alias",
     "start": "node dist/server.js",
-    "dev": "NODE_ENV=development ts-node src/server.ts"
+    "dev": "NODE_ENV=development ts-node src/server.js"
   },
   "keywords": [],
   "author": "",
