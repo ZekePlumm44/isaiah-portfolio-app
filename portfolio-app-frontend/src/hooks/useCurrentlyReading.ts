@@ -26,7 +26,7 @@ export default function useCurrentlyReading() {
 
     loadCurrentlyReading();
 
-    intervalId = window.setInterval(loadCurrentlyReading, 15000);
+    intervalId = window.setInterval(loadCurrentlyReading, 28800000);
 
     return () => {
       if (intervalId) clearInterval(intervalId);
