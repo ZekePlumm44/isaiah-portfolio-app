@@ -27,7 +27,7 @@ export const useCurrentlyPlaying = () => {
 
     loadCurrentlyPlaying();
 
-    intervalId = window.setInterval(loadCurrentlyPlaying, 28800000);
+    intervalId = window.setInterval(loadCurrentlyPlaying, 15000);
 
     return () => {
       if (intervalId) clearInterval(intervalId);

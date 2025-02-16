@@ -1,45 +1,43 @@
 #TODO
 
-UI:
-    4. Projects
-    4. Contact Me Form
-    5. Blog Posts
-    6. Photo Album
-    7. Playlists
-    8. Theme Customizer
-    9. Custom Greeting based on users location
-    10. AMA or Guestbook
-    11. Travel Map
-    13. Recipe Page
-    14. Easter Eggs
-    
-API:
-    1. Link to spotify API
-    2. Link to Literal.Club
-    3. Link to command line for adding blog posts 
-
-Enhancements
-
-	Move backend calls to hooks
 	Add tests
-		Unit tests
 		Integration tests
 		End to end tests
-	Create Docker file
-	Deploy
-	Configure CI/CD
 	Write documentation
 	
-	Add on hover for reading and listening
-	Add contact functionality
-		Make UI for contacting
-		Intergrate Backend Email
-	Add Nav Icon
-	Add headshot
-	Add currently listening blurb
-	Add current company blurb
-	Add Playlist Page
-	Add Blog Page
-	Integrate CMS
-	Add Project Page
-	Add Pixelfed Pag
+	1. Live Listening Data
+		1. Live Listening Frontend Blurb
+		2. Update Service to recieve data
+		3. Update API call to get data
+	2. Nav and Routing
+		1. Nav Button
+		2. Popout Menu
+		3. Routes to Pages
+	3. Blog Post Front End
+		1. Recent Posts Section
+		2. Posts Page
+			1. Lists of postsz
+				1. Most Recent
+				2. View All
+			2. Post Page
+				1. Title
+				2. Date
+				3. Share
+				4. Post
+		3. MongoDB for posts
+		4. CMS system for adding posts
+	4. Playlists Page
+		1. Built in links to spotify Playlists
+	5. Projects Page
+		1. Recent Projects Section
+		2. Projects Page
+			1. Picture
+			2. Description
+			3. Link
+	6. Contact me page
+		1. Form for contact with message
+		2. Integration with backend 
+	7. Light Mode/Dark Mode
+	8. Photo Album Page
+		1. Large Photos
+		2. Backend Integrations
